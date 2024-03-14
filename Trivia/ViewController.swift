@@ -26,63 +26,104 @@ class ViewController: UIViewController {
     
     var orig = 0
     
+    @IBOutlet weak var B1: UIButton!
+    
+    
+    @IBOutlet weak var B2: UIButton!
+    
+    
+    @IBOutlet weak var B3: UIButton!
+    
+    
+    @IBOutlet weak var B4: UIButton!
+    
     
     @IBAction func Ans1(_ sender: UIButton) {
         
-        if orig == 0{
-            orig = 1
-            changeQuestion()
-            test(sender: sender, num: 1)
-        }
-        var prevAns = answers[questionCount-1][0]
-        var ans = answers[questionCount][0]
-            sender.setTitle(String(ans), for: UIControl.State.normal)
-        if prevAns == correctAns[questionCount-1] && orig == 1{
-            correct += 1
-            
-        }
-        if orig == 1{
-            orig = 0
+        if questionCount == 2 && orig == 0{
+            var ans = answers[questionCount][0]
+            if ans == correctAns[questionCount]{
+                correct += 1
+            }
+            sendError()
+        } else {
+            if orig == 0{
+                orig = 1
+                changeQuestion()
+                test(sender: sender, num: 1)
+            }
+            var prevAns = answers[questionCount-1][0]
+            var ans = answers[questionCount][0]
+            B1.setTitle(String(ans), for: UIControl.State.normal)
+            if prevAns == correctAns[questionCount-1] && orig == 1{
+                correct += 1
+                
+            }
+            if orig == 1{
+                orig = 0
+            }
         }
 
+        
+        
     }
     
     
     @IBAction func Ans2(_ sender: UIButton) {
         
-        if orig == 0{
-            changeQuestion()
-            orig = 2
-            test(sender: sender, num: 2)
-        }
-        var prevAns = answers[questionCount-1][1]
-        var ans = answers[questionCount][1]
-        sender.setTitle(String(ans), for: UIControl.State.normal)
-        if prevAns == correctAns[questionCount-1] && orig == 2{
-            correct += 1
-        }
-        if orig == 2{
-            orig = 0
+        
+        if questionCount == 2 && orig == 0{
+            var ans = answers[questionCount][1]
+            if ans == correctAns[questionCount]{
+                correct += 1
+            }
+            sendError()
+        } else {
+            
+            if orig == 0{
+                changeQuestion()
+                orig = 2
+                test(sender: sender, num: 2)
+            }
+            var prevAns = answers[questionCount-1][1]
+            let ans = answers[questionCount][1]
+            B2.setTitle(String(ans), for: UIControl.State.normal)
+            if prevAns == correctAns[questionCount-1] && orig == 2{
+                correct += 1
+            }
+            if orig == 2{
+                orig = 0
+            }
         }
     }
     
     
     @IBAction func Ans3(_ sender: UIButton) {
         
-
-        if orig == 0{
-            changeQuestion()
-            orig = 3
-            test(sender: sender, num: 3)
-        }
-        var prevAns = answers[questionCount-1][2]
-        var ans = answers[questionCount][2]
-        sender.setTitle(String(ans), for: UIControl.State.normal)
-        if prevAns == correctAns[questionCount-1] && orig == 3{
-            correct += 1
-        }
-        if orig == 3{
-            orig = 0
+        if questionCount == 2 && orig == 0{
+            var ans = answers[questionCount][2]
+            if ans == correctAns[questionCount]{
+                correct += 1
+            }
+            sendError()
+        } else {
+            
+            if orig == 0{
+                changeQuestion()
+                orig = 3
+                test(sender: sender, num: 3)
+            }
+            var prevAns = answers[questionCount-1][2]
+            var ans = answers[questionCount][2]
+            B3.setTitle(String(ans), for: UIControl.State.normal)
+            if prevAns == correctAns[questionCount-1] && orig == 3{
+                correct += 1
+            }
+            if orig == 3{
+                
+                orig = 0
+                
+            }
         }
         
     }
@@ -90,27 +131,34 @@ class ViewController: UIViewController {
     
     @IBAction func Ans4(_ sender: UIButton) {
         
-
-        if orig == 0{
-            changeQuestion()
-            orig = 4
-            test(sender: sender, num: 4)
-        }
-        var prevAns = answers[questionCount-1][3]
-        var ans = answers[questionCount][3]
-        sender.setTitle(String(ans), for: UIControl.State.normal)
-        if prevAns == correctAns[questionCount-1] && orig == 4{
-            correct += 1
-        }
-        if orig == 4{
-            orig = 0
+        if questionCount == 2 && orig == 0{
+            var ans = answers[questionCount][3]
+            if ans == correctAns[questionCount]{
+                correct += 1
+            }
+            sendError()
+        } else {
+            if orig == 0{
+                changeQuestion()
+                orig = 4
+                test(sender: sender, num: 4)
+            }
+            var prevAns = answers[questionCount-1][3]
+            var ans = answers[questionCount][3]
+            B4.setTitle(String(ans), for: UIControl.State.normal)
+            if prevAns == correctAns[questionCount-1] && orig == 4{
+                correct += 1
+            }
+            if orig == 4{
+                orig = 0
+            }
         }
     }
     
     
     var questionCount = 0
     
-    let questions = ["What's 1+1?", "What's 2+2?", "What's 3+3"]
+    let questions = ["What's is the answer to 1+1?", "What's 2+2 in numbers?", "What's 3+3"]
     
     let answers = [["1", "2","3", "4"], ["2", "4", "8", "27"], ["6", "29","84", "3"]]
     
@@ -134,32 +182,33 @@ class ViewController: UIViewController {
     
     private func config(alert: UIAlertController) {
 
-        QuestionBox.layer.cornerRadius = 5
-
-
+        QuestionBox.layer.cornerRadius = 10
+        QuestionBox.text = questions[0]
 
         
     }
     
     private func changeQuestion() {
         
+
         questionCount += 1
-        
-        
-        if questionCount >= 3 {
             
-            alert = UIAlertController(title: "Game Over", message: "Final Score: " + String(correct), preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-            NSLog("The \"OK\" alert occured.")
-            }))
-            self.present(alert, animated: true, completion: nil)
-        } else {
             QuestionBox.text = String(questions[questionCount])
             QuestionCounter.text = "Question: " + String(questionCount + 1) + "/3"
             Category.text = genres[questionCount-1]
-        }
         
     }
+    
+    private func sendError() {
+        
+        alert = UIAlertController(title: "Game Over", message: "Final Score: " + String(correct), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+        NSLog("The \"OK\" alert occured.")
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
     
     private func test(sender: UIButton, num:Int) {
         
@@ -183,6 +232,7 @@ class ViewController: UIViewController {
         default:
             return
         }
+
 
         
     }

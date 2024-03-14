@@ -132,6 +132,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="B1" destination="X3C-fE-xjd" id="qdc-cI-uud"/>
+                        <outlet property="B2" destination="a2t-3q-G8L" id="9bx-U6-lCl"/>
+                        <outlet property="B3" destination="Z11-EU-xYm" id="Th7-fj-2JT"/>
+                        <outlet property="B4" destination="J0C-RS-kXh" id="ido-tn-mBa"/>
                         <outlet property="Category" destination="VfK-SD-9mT" id="hq7-Eg-0rj"/>
                         <outlet property="QuestionBox" destination="DX0-tj-NIx" id="F2R-3c-2iZ"/>
                         <outlet property="QuestionCounter" destination="SNq-pE-U3Y" id="2oF-42-Bca"/>
