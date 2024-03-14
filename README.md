@@ -4,7 +4,7 @@ Submitted by: **Casey Chin**
 
 **Trivia** is an app that can kind of test your knowledg eon things. But it doesn't work at the moment and I am going to try and work more on it by the extension deadline.
 
-Time spent: **3** hours spent in total
+Time spent: **5** hours spent in total
 
 ## Required Features
 
@@ -12,14 +12,14 @@ The following **required** functionality is completed:
 
 - [x] User can view the current question and 4 different answers
 - [x] User can view the next question after tapping an answer
-- [ ] User can answer at least 3 different questions
+- [x] User can answer at least 3 different questions
 
 
 The following **optional** features are implemented:
 
 - [ ] User can use the vertical orientation of the app on any device
-- [ ] User can track the question they are on and how many questions are left
-- [ ] User can see how many questions they got correct after answering all questions
+- [x] User can track the question they are on and how many questions are left
+- [x] User can see how many questions they got correct after answering all questions
 - [ ] User should be able to restart the game after they've finished answering all questions
 
 The following **additional** features are implemented:
@@ -32,9 +32,13 @@ Here is a reminder on how to embed Loom videos on GitHub. Feel free to remove th
 
 [Guide]](https://www.youtube.com/watch?v=GA92eKlYio4) .
 
+https://youtube.com/shorts/VG-jDMa-BuQ?feature=shared
+
 ## Notes
 
 Describe any challenges encountered while building the app.
+
+I had a lot of trouble getting the buttonbs to all update at the same time.
 
 ## License
 
